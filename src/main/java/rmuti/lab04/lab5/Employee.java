@@ -1,10 +1,33 @@
 package rmuti.lab04.lab5;
 
-public class Employee {
+public class Employee implements Comparable {
+	private String empId;
+	private String name;
+	private int salary;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	
+	public Employee(String empId, String name, int salary) {
+		this.empId = empId;
+		this.name = name;
+		this.salary = salary;	
 	}
-
+	@Override
+	public String toString() {
+		return "{empId = "+empId+", name = "+name+",salary ="+salary+"}";
+	}
+	
+	public int compareTo(Object o) {
+		Employee otherEmp = (Employee) o;
+		if (this.salary > otherEmp.salary) {
+			return 1;
+		}else if (this.salary < otherEmp.salary) {
+			return -1;
+		}
+		return 0;
+	}
+	
 }
+	
+		
+
+	
